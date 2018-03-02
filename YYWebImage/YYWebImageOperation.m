@@ -571,6 +571,9 @@ static void URLInBlackListAdd(NSURL *url) {
             if (frame.image) {
                 [_lock lock];
                 if (![self isCancelled]) {
+                    if (_progressImageBlock) {
+                        _progressImageBlock(frame.image, _data.length, _expectedSize);
+                    }
                     _completion(frame.image, _request.URL, YYWebImageFromRemote, YYWebImageStageProgress, nil);
                     _lastProgressiveDecodeTimestamp = now;
                 }
@@ -632,6 +635,9 @@ static void URLInBlackListAdd(NSURL *url) {
             if (image) {
                 [_lock lock];
                 if (![self isCancelled]) {
+                    if (_progressImageBlock) {
+                        _progressImageBlock(image, _data.length, _expectedSize);
+                    }
                     _completion(image, _request.URL, YYWebImageFromRemote, YYWebImageStageProgress, nil);
                     _lastProgressiveDecodeTimestamp = now;
                 }

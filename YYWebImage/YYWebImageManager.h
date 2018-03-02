@@ -158,6 +158,9 @@ typedef void (^YYWebImageCompletionBlock)(UIImage * _Nullable image,
 
 
 
+typedef void (^YYWebImageProgressImageBlock)(UIImage * _Nullable image,
+                                             NSInteger receivedSize,
+                                             NSInteger expectedSize);
 
 /**
  A manager to create and manage web image operation.

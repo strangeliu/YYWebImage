@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly)           NSString          *cacheKey; ///< The image cache key.
 @property (nonatomic, readonly)                   YYWebImageOptions options;   ///< The operation's option.
 
+@property (nonatomic, copy) YYWebImageProgressImageBlock progressImageBlock;
+
 /**
  Whether the URL connection should consult the credential storage for authenticating 
  the connection. Default is YES.
